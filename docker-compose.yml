@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+    db-server:
+        image: postgres
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=mysecretpassword
+            - ALLOW_IP_RANGE=*
+        healthcheck:
+            test: "exit 0"
+    
+    web-server:
+        image: my_super_project
+        build: sql_app/
+        ports:
+            - "8000:8000"
+        depends_on:
+            db-server:
+                condition: service_healthy
