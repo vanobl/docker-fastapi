@@ -1,5 +1,5 @@
 # docker-fastapi
-Пробный проект Docker
+Пробный проект Docker + FastAPI + PostgreSQL
 
 ### Описание
 В проекте показана возможность использования контейнеров Docker, фреймворка FastAPI, а так же  PostgreSQL.
