@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-    db-server:
+    dbserver:
         image: postgres
         ports:
             - "5432:5432"
@@ -13,11 +13,11 @@ services:
         healthcheck:
             test: "exit 0"
     
-    web-server:
+    webserver:
         image: my_super_project
         build: sql_app/
         ports:
             - "8000:8000"
         depends_on:
-            db-server:
+            dbserver:
                 condition: service_healthy
